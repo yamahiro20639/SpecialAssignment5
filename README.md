@@ -49,7 +49,7 @@ http://example.com/user/yama
 
 
 ## パスパラメーターとクエリ文字列との違い
-&emsp;パスパラメーター：特定の情報まで辿っていくイメージ<br>
+&*;パスパラメーター：特定の情報まで辿っていくイメージ<br>
 &emsp;クエリパラメーター：ユーザーが渡した値を元に関連する情報を引っ張り出すイメージ
 
 
@@ -85,6 +85,45 @@ http://example.com/user/yama
 &emsp;&emsp;③サーバーからHTTPレスポンスを発信(＝画面にホームページ表示)<br>
 ![画像](https://github.com/yamahiro20639/SpecialAssignment5/assets/144509349/d530e5be-b7bb-4a3d-8c88-19d632273c39)　
 参考文献：ITをわかりやすく解説（https://medium-company.com/http%E3%81%A8https%E3%81%AE%E9%81%95%E3%81%84/）
+
+
+## HTTPリクエストについて
+#### HTTPリクエスト
+クライアントサーバーへ指示する際に用いられます。<br>
+&emsp;また「___リクエストライン___」「___リクエストヘッダー___」「___リクエストボディ___」の３つの要素で構成されています。<br>
+下記がHTTPリクエストのイメージ図になります。
+![d000845-8](https://github.com/yamahiro20639/SpecialAssignment5/assets/144509349/28784a44-1789-4940-aeac-61cd2e9e29ea)
+参考文献：わわわ(https://wa3.i-3-i.info/word1841.html)
+#### -リクエストライン-
+HTTPメソッドを含むざっくりなリクエスト部分<br>
+```
+POST /search.html HTTP/1.1\r\n
+```
+#### -リクエストヘッダー-
+リクエストの追加情報やクライアント自身に関する詳細な情報(メタ情報)が入っています。<br>
+```
+Host: wa3.i-3-i.info\r\n
+Connection: keep-alive\r\n
+Content-Length: 38\r\n
+Cache-Control: max-age=0\r\n
+Origin: http://wa3.i-3-i.info\r\n
+Upgrade-Insecure-Requests: 1\r\n
+User-Agent: うんちゃら\r\n
+Content-Type: application/x-www-form-urlencoded\r\n
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8\r\n
+Referer: http://wa3.i-3-i.info/index.html\r\n
+Accept-Encoding: gzip, deflate\r\n
+Accept-Language: ja,en-US;q=0.8,en;q=0.6\r\n
+\r\n
+q=test&submitSearch=%E6%A4%9C%E7%B4%A2
+```
+#### -リクエストボディ-
+サーバーに対して追加したいPOSTデータやファイルロードデータ等が入っています。<br>
+```
+POST /search.html HTTP/1.1\r\n
+```
+
+
 
 
 
