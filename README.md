@@ -83,24 +83,24 @@ http://example.com/user/yama
 &emsp;&emsp;①クライアントからHTTPリクエストをサーバーへ発信(＝ホームページを表示するように要求)<br>
 &emsp;&emsp;②サーバーがリクエストを受信、処理<br>
 &emsp;&emsp;③サーバーからHTTPレスポンスを発信(＝画面にホームページ表示)<br>
-![画像](https://github.com/yamahiro20639/SpecialAssignment5/assets/144509349/d530e5be-b7bb-4a3d-8c88-19d632273c39)　
+![画像](https://github.com/yamahiro20639/SpecialAssignment5/assets/144509349/d530e5be-b7bb-4a3d-8c88-19d632273c39)　<br>
 参考文献：ITをわかりやすく解説（https://medium-company.com/http%E3%81%A8https%E3%81%AE%E9%81%95%E3%81%84/）
 
 
 ## HTTPリクエストについて
-#### HTTPリクエスト
-クライアントサーバーへ指示する際に用いられます。<br>
+&emsp;クライアントからサーバーへ指示する際にHTTPリクエストは用いられます。<br>
+&emsp;先ほど記述しましたが、画面にホームページを表示させる際にも活用されています。
 &emsp;また「___リクエストライン___」「___リクエストヘッダー___」「___リクエストボディ___」の３つの要素で構成されています。<br>
-下記がHTTPリクエストのイメージ図になります。
-![d000845-8](https://github.com/yamahiro20639/SpecialAssignment5/assets/144509349/28784a44-1789-4940-aeac-61cd2e9e29ea)
+&emsp;下記がHTTPリクエストのイメージ図になります。<br>
+![d000845-8](https://github.com/yamahiro20639/SpecialAssignment5/assets/144509349/28784a44-1789-4940-aeac-61cd2e9e29ea)<br>
 参考文献：わわわ(https://wa3.i-3-i.info/word1841.html)
 #### -リクエストライン-
-HTTPメソッドを含むざっくりなリクエスト部分<br>
+&emsp;HTTPメソッドを含むざっくりなリクエスト部分<br>
 ```
 POST /search.html HTTP/1.1\r\n
 ```
 #### -リクエストヘッダー-
-リクエストの追加情報やクライアント自身に関する詳細な情報(メタ情報)が入っています。<br>
+&emsp;リクエストの追加情報やクライアント自身に関する詳細な情報(メタ情報)が入っています。<br>
 ```
 Host: wa3.i-3-i.info\r\n
 Connection: keep-alive\r\n
@@ -118,12 +118,56 @@ Accept-Language: ja,en-US;q=0.8,en;q=0.6\r\n
 q=test&submitSearch=%E6%A4%9C%E7%B4%A2
 ```
 #### -リクエストボディ-
-サーバーに対して追加したいPOSTデータやファイルロードデータ等が入っています。<br>
+&emsp;サーバーに対して追加したいPOSTデータやファイルロードデータ等が入っています。<br>
 ```
 POST /search.html HTTP/1.1\r\n
 ```
 
+## HTTPレスポンについて
+&emsp;クライアントからリクエストを受けた後にサーバーから返答する際にHTTPレスポンが用いられます。<br>
+&emsp;また「___ステータス行___」「___レスポンスヘッダー___」「___レスポンスボディ___」の３つの要素で構成されています。<br>
+&emsp;下記がHTTPレスポンのイメージ図になります。<br>
+![d000842-10](https://github.com/yamahiro20639/SpecialAssignment5/assets/144509349/c561e439-8ac2-41c3-8072-c4020430abb7)<br>
+参考文献：わわわ(https://wa3.i-3-i.info/word1842.html)
+#### -ステータス行-
+&emsp;Hステータスコード含むを含むざっくりなレスポンス部分<br>
+```
+HTTP/1.1 200 OK\r\n
+```
+#### -レスポンスヘッダー-
+&emsp;ステータス行では表現しきれないサーバに関する情報や、URIで指定されたリソースに関する追加の情報が入っています。<br>
+```
+Server: nginx\r\n
+Date: Tue, 11 Jul 2017 09:23:07 GMT\r\n
+Content-Type: text/html\r\n
+Transfer-Encoding: chunked\r\n
+Connection: keep-alive\r\n
+```
+#### -レスポンスボディ-
+&emsp;リクエストで求めていた情報が入っています。例えば、HTMLデータなどもこちらに格納されます。
+```
+<!DOCTYPE html>\r\n
+<html lang="ja">\r\n
+<head>\r\n
+\t<meta http-equiv="content-type" content="text/html; charset=UTF-8" />\r\n
+\t<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">\r\n
+\r\n
+\r\n
+\t<meta name="keywords" content="\350\276\236\345\205\270,IT,\347\224\250\350\252\236,\345\210\235\345\277\203\350\200\205">\r\n
+\t<meta name="author" content="Makoto Sasaki">\r\n
+\t<meta name="copyright" content="Copyright PCS">\r\n
+\r\n
+\t<meta name="application-name" content="\343\202\217\343\202\217\343\202\217IT\347\224\250\350\252\236\350\276\236\345\205\270"/>\r\n
+\t<link rel="stylesheet" href="css/style.css?ver=00109">\r\n
+\t<link rel="stylesheet" href="css/search.css?ver=00109">\r\n
+\t<script src="./js/jquery-1.7.2.min.js?ver=00109"></script>\r\n
+\t<script src="./js/common.js?ver=00109"></script>\r\n
+</head>\r\n
+<body>\r\n
 
+（中略）
 
-
-
+</body>\r\n
+</html>\r\n
+\r\n
+```
