@@ -1,11 +1,13 @@
-# **第5回特別課題**
+# ___第5回特別課題___
+
+
 ## URLとは
 &emsp;URLとは「___Uniform Resource Locator___」の略となっております。<br>
 &emsp;私たちが普段、ブラウザで見ているサイト一つ一つにURLが振られており、「住所」に相当する情報になります。<br>
 &emsp;URLの記載方法と構成は下記の通りです。
 
 ```
--記載方法-
+-サンプルURL-
 http://yama.info/extension/index.html
 ```
       
@@ -28,7 +30,7 @@ http://yama.info/extension/index.html
 &emsp;サーバに情報を送るために送信先を指定するURLの末尾に特定の形式で付け足す文字列のことです。<br>
 &emsp;クエリ文字列を導入する場合は下記のように「？」等の記号を使って、URLの最後に付け加えます。
 ```
--記載方法-
+-サンプルURL-
 http://yama.info/extension/index.html/?q=udon
 ```
 &emsp;クエリパラメータで使う基本的な記号と位置については、下表の通りです。
@@ -42,9 +44,10 @@ http://yama.info/extension/index.html/?q=udon
 
 ## パスパラメーター（パス変数）とは
 ```
+-サンプル-
 http://example.com/user/yama
 ```
-における「1」の部分がパスパラメーター（パス変数）になります。
+における「yama」の部分がパスパラメーター（パス変数）になります。
 パスパラメータを指定することで特定の情報やサイトを表示させる事ができます。
 
 
@@ -94,14 +97,18 @@ http://example.com/user/yama
 &emsp;下記がHTTPリクエストのイメージ図になります。<br>
 ![d000845-8](https://github.com/yamahiro20639/SpecialAssignment5/assets/144509349/28784a44-1789-4940-aeac-61cd2e9e29ea)<br>
 参考文献：わわわ(https://wa3.i-3-i.info/word1841.html)
+
 #### -リクエストライン-
 &emsp;HTTPメソッドを含むざっくりなリクエスト部分<br>
 ```
+-サンプル-
 POST /search.html HTTP/1.1\r\n
 ```
+
 #### -リクエストヘッダー-
 &emsp;リクエストの追加情報やクライアント自身に関する詳細な情報(メタ情報)が入っています。<br>
 ```
+-サンプル-
 Host: wa3.i-3-i.info\r\n
 Connection: keep-alive\r\n
 Content-Length: 38\r\n
@@ -117,9 +124,11 @@ Accept-Language: ja,en-US;q=0.8,en;q=0.6\r\n
 \r\n
 q=test&submitSearch=%E6%A4%9C%E7%B4%A2
 ```
+
 #### -リクエストボディ-
 &emsp;サーバーに対して追加したいPOSTデータやファイルロードデータ等が入っています。<br>
 ```
+-サンプル-
 POST /search.html HTTP/1.1\r\n
 ```
 
@@ -129,23 +138,29 @@ POST /search.html HTTP/1.1\r\n
 &emsp;下記がHTTPレスポンのイメージ図になります。<br>
 ![d000842-10](https://github.com/yamahiro20639/SpecialAssignment5/assets/144509349/c561e439-8ac2-41c3-8072-c4020430abb7)<br>
 参考文献：わわわ(https://wa3.i-3-i.info/word1842.html)
+
 #### -ステータス行-
 &emsp;Hステータスコード含むを含むざっくりなレスポンス部分<br>
 ```
+-サンプル-
 HTTP/1.1 200 OK\r\n
 ```
+
 #### -レスポンスヘッダー-
 &emsp;ステータス行では表現しきれないサーバに関する情報や、URIで指定されたリソースに関する追加の情報が入っています。<br>
 ```
+-サンプル-
 Server: nginx\r\n
 Date: Tue, 11 Jul 2017 09:23:07 GMT\r\n
 Content-Type: text/html\r\n
 Transfer-Encoding: chunked\r\n
 Connection: keep-alive\r\n
 ```
+
 #### -レスポンスボディ-
 &emsp;リクエストで求めていた情報が入っています。例えば、HTMLデータなどもこちらに格納されます。
 ```
+-サンプル-
 <!DOCTYPE html>\r\n
 <html lang="ja">\r\n
 <head>\r\n
@@ -171,3 +186,68 @@ Connection: keep-alive\r\n
 </html>\r\n
 \r\n
 ```
+
+## JSONとは
+&emsp;JSONとは「___JavaScript Object Notation___」の略となっております。<br>
+&emsp;テキスト形式でデータを保存し色々な用途に活用できるファイルのフォーマット（書式）になります。<br>
+&emsp;JSONの書き方は非常にシンプルで、以下の4つのルールに従うだけです。<br>
+&emsp;&emsp;▼記載ルール▼<br>
+&emsp;&emsp;①項目名と値のペアで記述する<br>
+&emsp;&emsp;②項目名は「”（ダブルクオーテーション）」で囲む<br>
+&emsp;&emsp;③複数のペアを指定するときは「,（カンマ）」で区切る<br>
+&emsp;&emsp;④全体を{}（波カッコ） または[]（カギ角カッコ）で囲む<br>
+
+&emsp;下記は参考コードになります。<br>
+&emsp;このデータでは3名のユーザー情報を保持しています。<br>
+&emsp;ユーザーの情報としては、以下の情報が格納されています。<br>
+
+&emsp;&emsp;・name（名前）<br>
+&emsp;&emsp;・age（年齢）<br>
+
+&emsp;これらのユーザー情報が、配列として「users」の項目に格納されており、実際に格納されているユーザー数が「total」に格納されています。<br>
+
+
+```
+-サンプル-
+{
+  "total": 3,
+  "users": [{
+    "name": "田中",
+    "age": 22
+  }, {
+    "name": "佐藤",
+    "age": 18,
+  }, {
+    "name": "鈴木",
+    "age": 21,
+  }]
+}
+```
+## 参考文献
+&emsp;わわわ<br>
+&emsp;https://wa3.i-3-i.info/index.html<br>
+&emsp;クエリ文字列とは<br>
+&emsp;https://online.dhw.co.jp/kuritama/query-string/<br>　
+&emsp;クエリパラメータとは？URLの基本的な設定方法やコツを解説<br>
+&emsp;https://be-marke.jp/articles/knowhow-queryparameter<br>
+&emsp;URLの構造~ホスト名、パス、パラメータ、ハッシュの成り立ちとSEO<br>
+&emsp;https://www.marketechlabo.com/url-structure-for-marketer/<br>
+&emsp;パスパラメータとクエリパラメータの違い<br>
+&emsp;https://zenn.dev/eri_agri/articles/859a3362db8386<br>
+&emsp;クエリ文字列とは？- URLに含まれるパラメータの一部<br>
+&emsp;https://the-simple.jp/what-is-a-query-string-some-of-the-parameters-included-in-the-url<br>
+&emsp;URL / HTTPメソッドとは<br>
+&emsp;https://diveintocode.jp/blogs/Technology/depUrlHttpMethod<br>
+&emsp;POST, PUT, PATCHの違い<br>
+&emsp;https://zenn.dev/sgtkuc1118/articles/c73587c674a4a2<br>
+&emsp;PATCHとPUTの違いも解説<br>
+&emsp;https://omathin.com/http-method/<br>
+&emsp;HTTPステータスコードとは？種類とそれぞれの役割について<br>
+&emsp;https://digital-marketing.jp/seo/http-status-code/<br>
+&emsp;https://wa3.i-3-i.info/word1844.html<br>
+&emsp;HTTPステータスコード一覧とリクエストとレスポンスの意味を解説<br>
+&emsp;https://www.itmanage.co.jp/column/http-www-request-response-statuscode/<br>
+&emsp;HTTPリクエストボディとは、その使い方の解説はこちら！<br>
+&emsp;https://apidog.com/jp/blog/http-request-body/#:<br>
+&emsp;JSONとは？概要からJSONファイルフォーマットまで解説！<br>
+&emsp;https://and-engineer.com/articles/YfOfnBAAACEASwoR<br>
