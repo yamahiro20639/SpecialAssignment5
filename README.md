@@ -134,7 +134,7 @@ q=test&submitSearch=%E6%A4%9C%E7%B4%A2
 &emsp;リクエストラインの補足情報などが入っています。リクエストがPOSTメソッドの場合は、受け渡されるパラメータの内容がここに記述されます。<br>
 ```
 -サンプル-
-POST /search.html HTTP/1.1\r\n
+q=test&submitSearch=%E6%A4%9C%E7%B4%A2
 ```
 
 
